@@ -10,7 +10,7 @@ import libreplatforms.tinyscript.exceptions.LexingError;
 
 
 public class Lexer {
-  public static final Predicate<String> WORD_CHARACTER_REGEX = Pattern.compile("[a-z_]").asMatchPredicate();
+  public static final Predicate<String> WORD_CHARACTER_REGEX = Pattern.compile("[a-zA-Z_]").asMatchPredicate();
   public static final Pattern NUMBER_CHARACTER_REGEX = Pattern.compile("[0-9]+(\\.[0-9]+)?");
   
   public Queue<Token> lex(String code) throws LexingError {

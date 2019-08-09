@@ -40,5 +40,31 @@ You may also assign the result of an expression to a variable:
 $age := 2 ** 3
 ```
 
+### Functions
+The naming rules for functions are the same as they are for variables.
+This example illustrates the definition and usage of a function:
+
+```
+#circle_area $radius
+  3.141592654 * ($radius ** 2)
+#circle_area
+
+$radius := 1
+
+$area := [circle_area:$radius]
+```
+
+A function definition starts with a hash (`#`) and is followed by the name of the function.
+After the name follows a listing of the parameters of the function.
+The function body ends with the same name declaration as the function header started with.
+
+The function body may contain any regular statements, where the last statement in the function will be its return value.
+
+Calling a function works by placing a block of brackets `[]`, where the first part is the name of the function, followed by a list of its arguments, which are separated by colons `:`.
+
+A function may also not take any parameters, so you would just wrap the function's name in brackets.
+
+It is also possible to use a function call as a parameter for another function call.
+
 ## License
 This project is licensed under [version 3 of the GNU General Public License](./COPYING).

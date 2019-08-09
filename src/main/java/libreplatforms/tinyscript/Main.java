@@ -33,8 +33,10 @@ public class Main {
 		  r.dump();
 		} catch (LexingError e) {
       System.err.println("A lexing error occurred: " + e.getMessage());
+      e.printStackTrace();
     } catch (ParsingError e) {
       System.err.println("A parsing error occurred: " + e.getMessage());
+      e.printStackTrace();
     } catch (RuntimeError e) {
       System.err.println("A runtime error occurred: " + e.getMessage());
     }

@@ -27,10 +27,20 @@ public class Lexer {
           tokens.add(new Token(TokenType.SUB_TREE_CLOSE));
           break;
           
+        case '[':
+          tokens.add(new Token(TokenType.FUNCTION_CALL_OPEN));
+          break;
+        
+        case ']':
+          tokens.add(new Token(TokenType.FUNCTION_CALL_CLOSE));
+          break;
+          
         case ':':
           if (code.charAt(i + 1) == '=') {
             tokens.add(new Token(TokenType.ASSIGNMENT));
             ++i;
+          } else {
+            tokens.add(new Token(TokenType.FUNCTION_ARGUMENT_DIVIDER));
           }
           break;
           
@@ -64,6 +74,10 @@ public class Lexer {
         }
           break;
           
+        case '#':
+          tokens.add(new Token(TokenType.FUNCTION_START));
+          break;
+          
         // case list for characters to ignore
         case ' ':
           
@@ -72,7 +86,7 @@ public class Lexer {
         default:
           if (WORD_CHARACTER_REGEX.test(String.valueOf(c))) {
             String t = readToken(code, i);
-            i += t.length();
+            i += t.length() - 1;
             tokens.add(new Token(TokenType.TOKEN, t));
           } else if (NUMBER_CHARACTER_REGEX.matcher(String.valueOf(c)).find()) {
             var m = NUMBER_CHARACTER_REGEX.matcher(String.valueOf(code.substring(i)));
@@ -93,6 +107,7 @@ public class Lexer {
   private String readToken(String code, int fromIndex) {
     int i = 0;
     for (; WORD_CHARACTER_REGEX.test(String.valueOf(code.charAt(fromIndex + i))); ++i);
-    return code.substring(fromIndex, fromIndex + i);
+    String tokenText = code.substring(fromIndex, fromIndex + i);
+    return tokenText;
   }
 }

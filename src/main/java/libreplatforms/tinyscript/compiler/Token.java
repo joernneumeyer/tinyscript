@@ -23,6 +23,13 @@ public class Token {
   
   @Override
   public String toString() {
-    return "Token(type=" + this.type + ";value=" + this.value + ")";
+    return "Token(type=" + this.type + (this.value.length() > 0 ? ";value=" + this.value : "") + ")";
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) return true;
+    Token t = (Token)obj;
+    return this.type == t.type && this.value.equals(t.value);
   }
 }

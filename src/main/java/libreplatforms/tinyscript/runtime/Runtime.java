@@ -8,6 +8,14 @@ import libreplatforms.tinyscript.runtime.ast.ASTNode;
 public class Runtime {
   ExecutionContext ec = new ExecutionContext();
   
+  public Runtime(ExecutionContext ec) {
+    this.ec = ec;
+  }
+  
+  public Runtime() {
+    this(new ExecutionContext());
+  }
+  
   public void run(Queue<ASTNode> instructions) throws RuntimeError {
     for (ASTNode a : instructions) {
       a.evaluate(this.ec);

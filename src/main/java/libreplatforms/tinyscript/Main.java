@@ -43,7 +43,6 @@ public class Main {
 		try {
 		  var instructions = c.compile(code);
 		  r.run(instructions);
-		  r.dump();
 		} catch (LexingError e) {
       System.err.println("A lexing error occurred: " + e.getMessage());
       e.printStackTrace();

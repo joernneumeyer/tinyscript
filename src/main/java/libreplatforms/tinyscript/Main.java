@@ -6,6 +6,8 @@ import libreplatforms.tinyscript.compiler.Compiler;
 import libreplatforms.tinyscript.exceptions.LexingError;
 import libreplatforms.tinyscript.exceptions.ParsingError;
 import libreplatforms.tinyscript.exceptions.RuntimeError;
+import libreplatforms.tinyscript.library.IO;
+import libreplatforms.tinyscript.runtime.ExecutionContext;
 import libreplatforms.tinyscript.runtime.Runtime;
 
 public class Main {
@@ -24,9 +26,20 @@ public class Main {
 	    }
       code = sb.toString();
 	  }
-		System.out.println("read source.");
+	  
+	  ExecutionContext ec = new ExecutionContext();
+	  Runtime r = new Runtime(ec);
+	  
+	  Class[] libraries = new Class[] {
+	      IO.class
+	  };
+	  
+	  for (Class library : libraries) {
+	    r.loadLibrary(library);
+	  }
+	  
 		Compiler c = new Compiler();
-		Runtime r = new Runtime();
+		
 		try {
 		  var instructions = c.compile(code);
 		  r.run(instructions);

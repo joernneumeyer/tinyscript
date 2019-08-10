@@ -5,3 +5,4 @@
 $radius := 1
 
 $area := [circle_area:$radius]
+[print:$area]

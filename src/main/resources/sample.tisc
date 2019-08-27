@@ -2,7 +2,7 @@
   3.141592654 * ($radius ** 2)
 #circle_area
 
-$radius := 1
+$radius := [juggle_number:[prompt:"Please provide a radius: "]]
 
 $area := [circle_area:$radius]
 [print:$area]

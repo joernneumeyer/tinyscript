@@ -250,11 +250,9 @@ public class Parser {
 
         case STRING: {
           ASTNode literalValue = (ec) -> String.valueOf(t.getValue());
-          if (tokens.peek().getType() == TokenType.LINE_BREAK) {
-            return literalValue;
-          } else {
-            return this.parseSnippet(tokens, literalValue);
-          }
+          if (tokens.peek() == null) return literalValue;
+          if (tokens.peek().getType() == TokenType.LINE_BREAK) return literalValue;
+          else return this.parseSnippet(tokens, literalValue);
         }
         // break;
 

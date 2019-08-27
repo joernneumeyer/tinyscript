@@ -1,7 +1,7 @@
-package libreplatforms.tinyscript.runtime.ast;
+package de.joernneumeyer.tinyscript.runtime.ast;
 
-import libreplatforms.tinyscript.runtime.BiFunction;
-import libreplatforms.tinyscript.runtime.ExecutionContext;
+import de.joernneumeyer.tinyscript.runtime.BiFunction;
+import de.joernneumeyer.tinyscript.runtime.ExecutionContext;
 
 public class Operation implements ASTNode {
   private ASTNode left, right;

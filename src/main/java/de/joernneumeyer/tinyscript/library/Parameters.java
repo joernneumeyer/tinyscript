@@ -1,4 +1,4 @@
-package libreplatforms.tinyscript.library;
+package de.joernneumeyer.tinyscript.library;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

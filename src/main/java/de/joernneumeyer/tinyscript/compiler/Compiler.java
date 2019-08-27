@@ -1,11 +1,11 @@
-package libreplatforms.tinyscript.compiler;
+package de.joernneumeyer.tinyscript.compiler;
 
 import java.util.Queue;
 
-import libreplatforms.tinyscript.exceptions.LexingError;
-import libreplatforms.tinyscript.exceptions.ParsingError;
-import libreplatforms.tinyscript.runtime.Runtime;
-import libreplatforms.tinyscript.runtime.ast.ASTNode;
+import de.joernneumeyer.tinyscript.exceptions.LexingError;
+import de.joernneumeyer.tinyscript.exceptions.ParsingError;
+import de.joernneumeyer.tinyscript.runtime.Runtime;
+import de.joernneumeyer.tinyscript.runtime.ast.ASTNode;
 
 public class Compiler {
   public Queue<ASTNode> compile(String code) throws LexingError, ParsingError {

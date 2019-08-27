@@ -1,11 +1,11 @@
-package libreplatforms.tinyscript.compiler;
+package de.joernneumeyer.tinyscript.compiler;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
-import libreplatforms.tinyscript.exceptions.LexingError;
+import de.joernneumeyer.tinyscript.exceptions.LexingError;
 
 
 

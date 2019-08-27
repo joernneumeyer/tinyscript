@@ -1,4 +1,4 @@
-package libreplatforms.tinyscript.exceptions;
+package de.joernneumeyer.tinyscript.exceptions;
 
 public class RuntimeError extends Exception {
   public RuntimeError(String message) {

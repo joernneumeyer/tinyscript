@@ -1,11 +1,11 @@
-package libreplatforms.tinyscript.runtime;
+package de.joernneumeyer.tinyscript.runtime;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import libreplatforms.tinyscript.concepts.Function;
-import libreplatforms.tinyscript.concepts.Variable;
+import de.joernneumeyer.tinyscript.concepts.Function;
+import de.joernneumeyer.tinyscript.concepts.Variable;
 
 public class ExecutionContext {
   private Map<String, Variable> variables = new HashMap<String, Variable>();

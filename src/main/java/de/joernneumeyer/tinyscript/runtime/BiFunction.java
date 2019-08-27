@@ -1,4 +1,4 @@
-package libreplatforms.tinyscript.runtime;
+package de.joernneumeyer.tinyscript.runtime;
 
 @FunctionalInterface
 public interface BiFunction<V, W, R> {

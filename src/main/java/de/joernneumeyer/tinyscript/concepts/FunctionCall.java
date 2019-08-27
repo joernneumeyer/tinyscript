@@ -1,12 +1,12 @@
-package libreplatforms.tinyscript.concepts;
+package de.joernneumeyer.tinyscript.concepts;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import libreplatforms.tinyscript.exceptions.RuntimeError;
-import libreplatforms.tinyscript.runtime.ExecutionContext;
-import libreplatforms.tinyscript.runtime.ast.ASTNode;
+import de.joernneumeyer.tinyscript.exceptions.RuntimeError;
+import de.joernneumeyer.tinyscript.runtime.ExecutionContext;
+import de.joernneumeyer.tinyscript.runtime.ast.ASTNode;
 
 public class FunctionCall implements ASTNode {
   private String functionName;

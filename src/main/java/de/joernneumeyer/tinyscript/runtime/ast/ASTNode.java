@@ -1,7 +1,7 @@
-package libreplatforms.tinyscript.runtime.ast;
+package de.joernneumeyer.tinyscript.runtime.ast;
 
-import libreplatforms.tinyscript.exceptions.RuntimeError;
-import libreplatforms.tinyscript.runtime.ExecutionContext;
+import de.joernneumeyer.tinyscript.exceptions.RuntimeError;
+import de.joernneumeyer.tinyscript.runtime.ExecutionContext;
 
 @FunctionalInterface
 public interface ASTNode {

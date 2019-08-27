@@ -1,4 +1,4 @@
-package libreplatforms.tinyscript;
+package de.joernneumeyer.tinyscript;
 
 import java.util.LinkedList;
 

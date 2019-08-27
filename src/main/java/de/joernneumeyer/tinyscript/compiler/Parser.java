@@ -1,4 +1,4 @@
-package libreplatforms.tinyscript.compiler;
+package de.joernneumeyer.tinyscript.compiler;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,13 +6,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-import libreplatforms.tinyscript.concepts.DataTypes;
-import libreplatforms.tinyscript.concepts.Function;
-import libreplatforms.tinyscript.concepts.FunctionCall;
-import libreplatforms.tinyscript.exceptions.ParsingError;
-import libreplatforms.tinyscript.exceptions.RuntimeError;
-import libreplatforms.tinyscript.runtime.ast.ASTNode;
-import libreplatforms.tinyscript.runtime.ast.Assignment;
+import de.joernneumeyer.tinyscript.concepts.DataTypes;
+import de.joernneumeyer.tinyscript.concepts.Function;
+import de.joernneumeyer.tinyscript.concepts.FunctionCall;
+import de.joernneumeyer.tinyscript.exceptions.ParsingError;
+import de.joernneumeyer.tinyscript.exceptions.RuntimeError;
+import de.joernneumeyer.tinyscript.runtime.ast.ASTNode;
+import de.joernneumeyer.tinyscript.runtime.ast.Assignment;
 
 public class Parser {
   ASTNode lastAst = null;

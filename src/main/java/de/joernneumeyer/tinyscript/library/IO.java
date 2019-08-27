@@ -1,6 +1,6 @@
-package libreplatforms.tinyscript.library;
+package de.joernneumeyer.tinyscript.library;
 
-import libreplatforms.tinyscript.runtime.ExecutionContext;
+import de.joernneumeyer.tinyscript.runtime.ExecutionContext;
 
 @Library
 public class IO {

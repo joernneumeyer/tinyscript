@@ -1,4 +1,4 @@
-package libreplatforms.tinyscript.concepts;
+package de.joernneumeyer.tinyscript.concepts;
 
 public enum DataTypes implements DataType {
   T_STRING("string"), T_NUMBER("number"), T_UNKNOWN("unknown");

@@ -1,4 +1,4 @@
-package libreplatforms.tinyscript.concepts;
+package de.joernneumeyer.tinyscript.concepts;
 
 public interface DataType {
   String getName();

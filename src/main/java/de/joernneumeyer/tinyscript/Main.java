@@ -1,18 +1,18 @@
-package libreplatforms.tinyscript;
+package de.joernneumeyer.tinyscript;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 
 import org.reflections.Reflections;
 
-import libreplatforms.tinyscript.compiler.Compiler;
-import libreplatforms.tinyscript.exceptions.LexingError;
-import libreplatforms.tinyscript.exceptions.ParsingError;
-import libreplatforms.tinyscript.exceptions.RuntimeError;
-import libreplatforms.tinyscript.library.IO;
-import libreplatforms.tinyscript.library.Library;
-import libreplatforms.tinyscript.runtime.ExecutionContext;
-import libreplatforms.tinyscript.runtime.Runtime;
+import de.joernneumeyer.tinyscript.compiler.Compiler;
+import de.joernneumeyer.tinyscript.exceptions.LexingError;
+import de.joernneumeyer.tinyscript.exceptions.ParsingError;
+import de.joernneumeyer.tinyscript.exceptions.RuntimeError;
+import de.joernneumeyer.tinyscript.library.IO;
+import de.joernneumeyer.tinyscript.library.Library;
+import de.joernneumeyer.tinyscript.runtime.ExecutionContext;
+import de.joernneumeyer.tinyscript.runtime.Runtime;
 
 public class Main {
 	public static void main(String[] args) {

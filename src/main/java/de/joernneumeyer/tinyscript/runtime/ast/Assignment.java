@@ -1,10 +1,10 @@
-package libreplatforms.tinyscript.runtime.ast;
+package de.joernneumeyer.tinyscript.runtime.ast;
 
-import libreplatforms.tinyscript.concepts.DataType;
-import libreplatforms.tinyscript.concepts.DataTypes;
-import libreplatforms.tinyscript.concepts.Variable;
-import libreplatforms.tinyscript.exceptions.RuntimeError;
-import libreplatforms.tinyscript.runtime.ExecutionContext;
+import de.joernneumeyer.tinyscript.concepts.DataType;
+import de.joernneumeyer.tinyscript.concepts.DataTypes;
+import de.joernneumeyer.tinyscript.concepts.Variable;
+import de.joernneumeyer.tinyscript.exceptions.RuntimeError;
+import de.joernneumeyer.tinyscript.runtime.ExecutionContext;
 
 public class Assignment implements ASTNode {
   private String variableName;

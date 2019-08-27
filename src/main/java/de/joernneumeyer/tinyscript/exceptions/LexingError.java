@@ -1,4 +1,4 @@
-package libreplatforms.tinyscript.exceptions;
+package de.joernneumeyer.tinyscript.exceptions;
 
 public class LexingError extends Exception {
   public LexingError(String message) {

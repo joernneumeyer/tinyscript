@@ -1,4 +1,4 @@
-package libreplatforms.tinyscript.compiler;
+package de.joernneumeyer.tinyscript.compiler;
 
 public class Token {
   private TokenType type;

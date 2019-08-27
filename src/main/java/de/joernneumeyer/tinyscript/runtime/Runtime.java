@@ -1,13 +1,13 @@
-package libreplatforms.tinyscript.runtime;
+package de.joernneumeyer.tinyscript.runtime;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Queue;
 
-import libreplatforms.tinyscript.concepts.Function;
-import libreplatforms.tinyscript.exceptions.RuntimeError;
-import libreplatforms.tinyscript.library.Parameters;
-import libreplatforms.tinyscript.runtime.ast.ASTNode;
+import de.joernneumeyer.tinyscript.concepts.Function;
+import de.joernneumeyer.tinyscript.exceptions.RuntimeError;
+import de.joernneumeyer.tinyscript.library.Parameters;
+import de.joernneumeyer.tinyscript.runtime.ast.ASTNode;
 
 public class Runtime {
   ExecutionContext ec = new ExecutionContext();

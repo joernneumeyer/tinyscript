@@ -2,11 +2,15 @@ package libreplatforms.tinyscript;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+
+import org.reflections.Reflections;
+
 import libreplatforms.tinyscript.compiler.Compiler;
 import libreplatforms.tinyscript.exceptions.LexingError;
 import libreplatforms.tinyscript.exceptions.ParsingError;
 import libreplatforms.tinyscript.exceptions.RuntimeError;
 import libreplatforms.tinyscript.library.IO;
+import libreplatforms.tinyscript.library.Library;
 import libreplatforms.tinyscript.runtime.ExecutionContext;
 import libreplatforms.tinyscript.runtime.Runtime;
 
@@ -30,13 +34,10 @@ public class Main {
 	  ExecutionContext ec = new ExecutionContext();
 	  Runtime r = new Runtime(ec);
 	  
-	  Class[] libraries = new Class[] {
-	      IO.class
-	  };
+	  (new Reflections(""))
+	  .getTypesAnnotatedWith(Library.class)
+	  .forEach(r::loadLibrary);
 	  
-	  for (Class library : libraries) {
-	    r.loadLibrary(library);
-	  }
 	  
 		Compiler c = new Compiler();
 		

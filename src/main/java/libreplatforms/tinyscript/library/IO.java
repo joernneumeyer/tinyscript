@@ -2,6 +2,7 @@ package libreplatforms.tinyscript.library;
 
 import libreplatforms.tinyscript.runtime.ExecutionContext;
 
+@Library
 public class IO {
   @Parameters(names = {"text"})
   public static Object print(ExecutionContext ec) {

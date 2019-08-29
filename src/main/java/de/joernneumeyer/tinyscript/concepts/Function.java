@@ -30,7 +30,11 @@ public class Function implements ASTNode {
   public Object apply(Map<String, Variable> parameters) throws RuntimeError {
     ExecutionContext ec = new ExecutionContext();
     for (String p : this.parameterNames) {
-      ec.putVariable(parameters.get(p));
+      if (p.startsWith(".")) {
+        ec.putVariable(parameters.get(p.substring(1)));
+      } else {
+        ec.putVariable(parameters.get(p));
+      }
     }
     for (int i = 0; i < this.instructions.length - 1; ++i) {
       this.instructions[i].evaluate(ec);

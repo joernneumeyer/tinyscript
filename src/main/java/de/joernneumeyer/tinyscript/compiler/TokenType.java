@@ -1,7 +1,7 @@
 package de.joernneumeyer.tinyscript.compiler;
 
 public enum TokenType {
-  TOKEN,
+  SYMBOL,
   OPERATION,
   LINE_BREAK,
   VARIABLE_START,

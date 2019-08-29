@@ -1,5 +1,2 @@
-$values := [list:3:4:5]
-
-@iterate $values $v
-  [print:$v]
-@iterate
+$values := [list_with_values:3:4:5]
+[list_dump:$values]

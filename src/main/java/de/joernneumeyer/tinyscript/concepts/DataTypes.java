@@ -1,7 +1,9 @@
 package de.joernneumeyer.tinyscript.concepts;
 
+import java.util.List;
+
 public enum DataTypes implements DataType {
-  T_STRING("string"), T_NUMBER("number"), T_UNKNOWN("unknown");
+  T_STRING("string"), T_NUMBER("number"), T_UNKNOWN("unknown"), T_LIST("list"), T_ARRAY("array");
   
   private String name;
   
@@ -20,12 +22,17 @@ public enum DataTypes implements DataType {
   }
   
   public static DataType getType(Object o) {
-    if (o instanceof String) {
-      return T_STRING;
-    } else if (o instanceof Double) {
-      return T_NUMBER;
-    } else {
+    if (o == null)
       return T_UNKNOWN;
-    }
+    if (o instanceof String)
+      return T_STRING;
+    else if (o instanceof Double)
+      return T_NUMBER;
+    else if (o.getClass().isArray())
+      return T_ARRAY;
+    else if (o instanceof List<?>)
+      return T_LIST;
+    else
+      return T_UNKNOWN;
   }
 }

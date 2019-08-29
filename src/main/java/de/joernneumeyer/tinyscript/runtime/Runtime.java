@@ -1,5 +1,6 @@
 package de.joernneumeyer.tinyscript.runtime;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Queue;
@@ -32,8 +33,12 @@ public class Runtime {
       
       ASTNode astMethod = (ec) -> {
         try {
-          return m.invoke(null, ec);
-        } catch (Exception e) {
+          Object result = m.invoke(null, ec);
+          System.out.println("called " + m.getName() + "resulting in " + result);
+          return result;
+        } catch (InvocationTargetException e) {
+          return null;
+        } catch (IllegalAccessException e) {
           return null;
         }
       };

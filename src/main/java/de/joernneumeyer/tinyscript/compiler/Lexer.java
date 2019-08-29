@@ -87,7 +87,7 @@ public class Lexer {
           if (WORD_CHARACTER_REGEX.test(String.valueOf(c))) {
             String t = readToken(code, i);
             i += t.length() - 1;
-            tokens.add(new Token(TokenType.TOKEN, t));
+            tokens.add(new Token(TokenType.SYMBOL, t));
           } else if (NUMBER_CHARACTER_REGEX.matcher(String.valueOf(c)).find()) {
             var m = NUMBER_CHARACTER_REGEX.matcher(String.valueOf(code.substring(i)));
             m.find();

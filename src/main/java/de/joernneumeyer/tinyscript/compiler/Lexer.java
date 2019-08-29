@@ -44,6 +44,10 @@ public class Lexer {
           }
           break;
           
+        case '@':
+          tokens.add(new Token(TokenType.RUNTIME_DIRECTIVE_INDICATOR));
+          break;
+          
         case '*':
           if (code.charAt(i + 1) == '*') {
             ++i;

@@ -36,6 +36,8 @@ public class Main {
 	  
 	  (new Reflections(""))
 	  .getTypesAnnotatedWith(Library.class)
+	  .stream()
+	  .sorted((a, b) -> a.getName().compareTo(b.getName()))
 	  .forEach(r::loadLibrary);
 	  
 	  

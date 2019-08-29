@@ -45,8 +45,8 @@ public class Parser {
 
   private Function parseFunction(Queue<Token> tokens) throws ParsingError {
     Token functionName = tokens.poll();
-    if (functionName.getType() != TokenType.TOKEN) {
-      throw new ParsingError("Expected token of type " + TokenType.TOKEN + " after " + TokenType.FUNCTION_START
+    if (functionName.getType() != TokenType.SYMBOL) {
+      throw new ParsingError("Expected token of type " + TokenType.SYMBOL + " after " + TokenType.FUNCTION_START
           + " but got " + functionName.getType() + "!");
     }
 
@@ -59,8 +59,8 @@ public class Parser {
           throw new ParsingError("Expected " + TokenType.VARIABLE_START + " but got " + varStart.getType() + "!");
         }
         Token parameterName = tokens.poll();
-        if (parameterName.getType() != TokenType.TOKEN) {
-          throw new ParsingError("Expected " + TokenType.TOKEN + " but got " + tokens.peek().getType() + "!");
+        if (parameterName.getType() != TokenType.SYMBOL) {
+          throw new ParsingError("Expected " + TokenType.SYMBOL + " but got " + tokens.peek().getType() + "!");
         }
         parameterNames.add(parameterName.getValue());
       }
@@ -74,9 +74,9 @@ public class Parser {
         functionTokens.add(t);
       } else {
         t = tokens.poll();
-        if (t.getType() != TokenType.TOKEN) {
+        if (t.getType() != TokenType.SYMBOL) {
           throw new ParsingError(
-              "Expected " + TokenType.TOKEN + " for function definition end but got " + t.getType() + "!");
+              "Expected " + TokenType.SYMBOL + " for function definition end but got " + t.getType() + "!");
         } else if (!t.equals(functionName)) {
           throw new ParsingError("The function name at the beginning and end habe to match!");
         }
@@ -86,12 +86,12 @@ public class Parser {
 
     return new Function(functionName.getValue(), this.parse(functionTokens), parameterNames);
   }
-
+  
   private FunctionCall parseFunctionCall(Queue<Token> tokens) throws ParsingError {
     Token functionName = tokens.poll();
-    if (functionName.getType() != TokenType.TOKEN) {
+    if (functionName.getType() != TokenType.SYMBOL) {
       throw new ParsingError(
-          "Expected " + TokenType.TOKEN + " for function call end but got " + functionName.getType() + "!");
+          "Expected " + TokenType.SYMBOL + " for function call end but got " + functionName.getType() + "!");
     }
 
     Queue<Token> callTokens = new LinkedList<Token>();
@@ -211,7 +211,7 @@ public class Parser {
 
         case VARIABLE_START: {
           Token variableName = tokens.poll();
-          if (variableName.getType() != TokenType.TOKEN) {
+          if (variableName.getType() != TokenType.SYMBOL) {
             continue;
           }
 
@@ -255,7 +255,7 @@ public class Parser {
           else return this.parseSnippet(tokens, literalValue);
         }
         // break;
-
+        
         case OPERATION:
           ASTNode leftAst = previousAst;
           ASTNode rightAst = this.parseSnippet(tokens, null);

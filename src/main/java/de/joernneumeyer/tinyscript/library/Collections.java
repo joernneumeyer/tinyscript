@@ -1,9 +1,12 @@
 package de.joernneumeyer.tinyscript.library;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+import de.joernneumeyer.tinyscript.concepts.DataTypes;
+import de.joernneumeyer.tinyscript.concepts.Variable;
 import de.joernneumeyer.tinyscript.exceptions.RuntimeError;
 import de.joernneumeyer.tinyscript.runtime.ExecutionContext;
 
@@ -11,6 +14,26 @@ import de.joernneumeyer.tinyscript.runtime.ExecutionContext;
 public class Collections {
   public Object list(ExecutionContext ec) {
     return array_list(ec);
+  }
+  
+  @Parameters(names = {"list"})
+  public Object list_dump(ExecutionContext ec) {
+    System.out.println(ec);
+    Variable listVariable = ec.getVariableByName("list");
+    System.out.println(listVariable);
+    List<Object> list = (List<Object>)listVariable.getValue();
+    for (Object o : list) {
+      System.out.println(o);
+    }
+    return null;
+  }
+  
+  @Parameters(names = {".values"})
+  public Object list_with_values(ExecutionContext ec) {
+    System.out.println("foobar");
+    var list = (List<Object>)ec.getVariableByName("values").getValue();
+    System.out.println(list.size());
+    return list;
   }
   
   public Object linked_list(ExecutionContext ec) {

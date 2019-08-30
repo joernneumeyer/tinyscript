@@ -9,6 +9,7 @@ import de.joernneumeyer.tinyscript.concepts.DataTypes;
 import de.joernneumeyer.tinyscript.concepts.Variable;
 import de.joernneumeyer.tinyscript.exceptions.RuntimeError;
 import de.joernneumeyer.tinyscript.runtime.ExecutionContext;
+import de.joernneumeyer.tinyscript.runtime.ast.ASTNode;
 
 @Library
 public class Collections {
@@ -17,22 +18,19 @@ public class Collections {
   }
   
   @Parameters(names = {"list"})
-  public Object list_dump(ExecutionContext ec) {
-    System.out.println(ec);
+  public Object list_dump(ExecutionContext ec) throws RuntimeError {
     Variable listVariable = ec.getVariableByName("list");
-    System.out.println(listVariable);
     List<Object> list = (List<Object>)listVariable.getValue();
     for (Object o : list) {
-      System.out.println(o);
+      ASTNode a = (ASTNode)o;
+      System.out.println(a.evaluate(ec));
     }
     return null;
   }
   
   @Parameters(names = {".values"})
   public Object list_with_values(ExecutionContext ec) {
-    System.out.println("foobar");
     var list = (List<Object>)ec.getVariableByName("values").getValue();
-    System.out.println(list.size());
     return list;
   }
   

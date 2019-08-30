@@ -54,6 +54,7 @@ public class Main {
       e.printStackTrace();
     } catch (RuntimeError e) {
       System.err.println("A runtime error occurred: " + e.getMessage());
+      e.printStackTrace();
     }
 	}
 }

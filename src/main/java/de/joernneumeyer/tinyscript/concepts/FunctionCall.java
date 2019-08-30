@@ -58,7 +58,8 @@ public class FunctionCall implements ASTNode {
       }
       parameters.put(
           vargName,
-          new Variable(vargName, DataTypes.getType(vargs), vargs));
+          new Variable(vargName, DataTypes.getType(vargs), vargs)
+      );
     }
     
     return functionToCall.apply(parameters);

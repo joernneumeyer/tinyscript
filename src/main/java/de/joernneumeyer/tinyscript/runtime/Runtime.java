@@ -22,6 +22,17 @@ public class Runtime {
   }
 
   public void loadLibrary(Class library) {
+    Object libraryInstance;
+    
+    try {
+      libraryInstance = library.getConstructor().newInstance();
+    } catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
+        | NoSuchMethodException | SecurityException e1) {
+      libraryInstance = new Object();
+    }
+    
+    final Object bindingInstance = libraryInstance;
+    
     for (Method m : library.getMethods()) {
       String[] parameters;
       Parameters[] p = m.getAnnotationsByType(Parameters.class);
@@ -33,13 +44,12 @@ public class Runtime {
       
       ASTNode astMethod = (ec) -> {
         try {
-          Object result = m.invoke(null, ec);
-          System.out.println("called " + m.getName() + "resulting in " + result);
+          Object result = m.invoke(bindingInstance, ec);
           return result;
         } catch (InvocationTargetException e) {
-          return null;
+          throw new RuntimeError("Could not invoke library function '" + m.getName() + "'!", e);
         } catch (IllegalAccessException e) {
-          return null;
+          throw new RuntimeError("Could not invoke library function '" + m.getName() + "'!", e);
         }
       };
       
@@ -49,8 +59,12 @@ public class Runtime {
   }
 
   public void run(Queue<ASTNode> instructions) throws RuntimeError {
-    for (ASTNode a : instructions) {
-      a.evaluate(this.ec);
+    try {
+      for (ASTNode a : instructions) {
+        a.evaluate(this.ec);
+      }
+    } catch (NullPointerException e) {
+      throw new RuntimeError("NULL pointer encountered!", e);
     }
   }
 
